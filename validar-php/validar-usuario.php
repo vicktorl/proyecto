@@ -25,21 +25,8 @@ function administrador(){
 function trabajador($nombre,$contraseha){
 	session_start();
 	include 'iniciar.php';
-	$id_cliente="";
-	$usuario2= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'"; 
-	$query4= mysqli_query($conectar,$usuario2);
-	$usuario= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'";
-	while($mostrar=mysqli_fetch_array($query4)){											
-			$id_cliente=$mostrar['id'];															//toma la id del cliente
-		}
-		$id_factura="";
-		$factur= "SELECT * FROM factura ";
-		$query3= mysqli_query($conectar,$factur);
-		while($mostrar=mysqli_fetch_array($query3)){
-		if ($id_cliente==$mostrar['id_cliente']) {									//usuario pose una factura
-			$id_factura=$mostrar['id_cliente'];	
-		}
-	}			$trabajador="SELECT * FROM trabajador where nombre ='$nombre' and contraseha ='$contraseha'";//compara nombre y contraseha
+	
+	$trabajador="SELECT * FROM trabajador where nombre ='$nombre' and contraseha ='$contraseha'";//compara nombre y contraseha
 	$query2= mysqli_query($conectar,$trabajador);
 	$tupla_trabaj=mysqli_num_rows($query2);
 	if ($tupla_trabaj>0) {
@@ -51,20 +38,34 @@ function trabajador($nombre,$contraseha){
 		header("Location:trabajador.php");
 		die();
 	}
-	usuario($nombre,$contraseha,$id_cliente,$id_factura);
+	usuario($nombre,$contraseha,$id_cliente);
 	die();
 }
 /**
- * entra como usuario de lo contrario muestra un error por pantallaStrin
+ * entra como usuario de lo contrario muestra un mensaje por pantalla
  * @param Strin $nombre  nombre del usuario
  * @param Strin $contraseha  contraseha del usuario
  * @param Integer $id_cliente  id del usuario
  * @param Integer $id_factura  id del usuario en la factura
  * @return void
  */
-function usuario($nombre,$contraseha,$id_cliente,$id_factura){
+function usuario($nombre,$contraseha,$id_cliente){
 
 	include 'iniciar.php';
+	$id_cliente="";
+	$usuario2= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'"; 
+	$query4= mysqli_query($conectar,$usuario2);
+	while($mostrar=mysqli_fetch_array($query4)){											
+			$id_cliente=$mostrar['id'];															//toma la id del cliente
+		}
+		$id_factura="";
+		$factur= "SELECT * FROM factura ";
+		$query3= mysqli_query($conectar,$factur);
+		while($mostrar=mysqli_fetch_array($query3)){
+		if ($id_cliente==$mostrar['id_cliente']) {									//usuario pose una factura
+			$id_factura=$mostrar['id_cliente'];	
+		}
+	}
 	$usuario= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'";
 	$query= mysqli_query($conectar,$usuario);
 	$tupla_usuario=mysqli_num_rows($query);	

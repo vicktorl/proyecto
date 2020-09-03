@@ -8,34 +8,31 @@ function cargaUsuario(){
 	session_start();
 	$nombre=$_POST['nombre'];
 	$apellido=$_POST['apellido'];
-	$correo=$_POST['correo'];
 	$contraseha=$_POST['contraseha'];
-	guardaUsuario($nombre,$apellido,$correo,$contraseha);
+	guardaUsuario($nombre,$apellido,$contraseha);
 }
 /**
  * guarda usuario en base de datos
  * @param String $nombre  nombre del usuario
  * @param  String $apellido  Apellido del usuario
- * @param  String $correo  Correo del usuario
  * @param  String $contraseha  Contraseha del usuario
  * @return void
  */
-function guardaUsuario($nombre,$apellido,$correo,$contraseha){
+function guardaUsuario($nombre,$apellido,$contraseha){
 
 	include 'iniciar.php';
-	$insertar= "INSERT INTO `usuario`(`nombre`, `apellido`,`correo`,`contraseha`) VALUES ('$nombre','$apellido','$correo','$contraseha')";
+	$insertar= "INSERT INTO `usuario`(`nombre`, `apellido`,`contraseha`) VALUES ('$nombre','$apellido','$contraseha')";
 	$resultado = mysqli_query($conectar,$insertar);
-	redirecciona($nombre,$apellido,$correo,$contraseha);
+	redirecciona($nombre,$apellido,$contraseha);
 }
 /**
 * si el usuario tiene una factura lo redireciona a su factura de lo contrario debe crear una
 * @param  String $nombre  nombre del usuario
 * @param  String $apellido  Apellido del usuario
-* @param  String $correo  Correo del usuario
 * @param  String $contraseha  Contraseha del usuario
 * @return void
 */
-function redirecciona($nombre,$apellido,$correo,$contraseha){
+function redirecciona($nombre,$apellido,$contraseha){
 	
 	include 'iniciar.php';
 	$usuario= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'";

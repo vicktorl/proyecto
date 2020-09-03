@@ -4,7 +4,6 @@
  * @return void
  */
 function mostrar(){
-	if ($_POST) {
 		$nombre=$_POST['nombre'];
 		$correo=$_POST['correo'];
 		$telefono=$_POST['telefono'];
@@ -19,5 +18,5 @@ function mostrar(){
 			echo "<p class='exito'>*Email enviado</p>";
 		else
 			echo "<p class='error'>*Email no enviado</p>";
-	}}
+	}
 	?>

@@ -60,7 +60,6 @@ include 'validar-php/validar_loging.php';
 					<h2>Formulario de registro</h2>
 					<input required name="nombre"class="control" type="text" placeholder="Ingrese su nombre">
 					<input required name="apellido" class="control" type="text" placeholder="Ingrese su apellido">
-					<input required name="correo"class="control" type="tetxt" placeholder="Ingrese su correo">
 					<input required name="contraseha"class="control" type="password" placeholder="Ingrese su contraseha">
 					<input required name="confirmar"class="control" type="password" placeholder="Confirme su contraseha">
 					<p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
