@@ -1,0 +1,54 @@
+Search.appendIndex(
+    [
+                {
+            "fqsen": "\\mostrar\u0028\u0029",
+            "name": "mostrar",
+            "summary": "enviar\u0020un\u0020correo\u0020electronico\u0020con\u0020los\u0020datos\u0020del\u0020usuario",
+            "url": "../namespaces/default.html#function_mostrar"
+        },                {
+            "fqsen": "\\mostrarUsuario\u0028\u0029",
+            "name": "mostrarUsuario",
+            "summary": "muestra\u0020el\u0020nombre\u0020del\u0020usuario",
+            "url": "../namespaces/default.html#function_mostrarUsuario"
+        },                {
+            "fqsen": "\\mostrarFactura\u0028\u0029",
+            "name": "mostrarFactura",
+            "summary": "muestra\u0020la\u0020informacion\u0020guardada\u0020en\u0020base\u0020de\u0020datos",
+            "url": "../namespaces/default.html#function_mostrarFactura"
+        },                {
+            "fqsen": "\\cargaUsuario\u0028\u0029",
+            "name": "cargaUsuario",
+            "summary": "guarda\u0020los\u0020datos\u0020del\u0020usuario\u0020en\u0020variables\u0020simples",
+            "url": "../namespaces/default.html#function_cargaUsuario"
+        },                {
+            "fqsen": "\\guardaUsuario\u0028\u0029",
+            "name": "guardaUsuario",
+            "summary": "guarda\u0020usuario\u0020en\u0020base\u0020de\u0020datos",
+            "url": "../namespaces/default.html#function_guardaUsuario"
+        },                {
+            "fqsen": "\\administrador\u0028\u0029",
+            "name": "administrador",
+            "summary": "entra\u0020como\u0020administrador\u0020de\u0020lo\u0020contrario\u0020pasa\u0020a\u0020la\u0020siguiente\u0020funcion",
+            "url": "../namespaces/default.html#function_administrador"
+        },                {
+            "fqsen": "\\trabajador\u0028\u0029",
+            "name": "trabajador",
+            "summary": "entra\u0020como\u0020trabajador\u0020de\u0020lo\u0020contrario\u0020pasa\u0020a\u0020la\u0020siguiennte\u0020funcion",
+            "url": "../namespaces/default.html#function_trabajador"
+        },                {
+            "fqsen": "\\usuario\u0028\u0029",
+            "name": "usuario",
+            "summary": "entra\u0020como\u0020usuario\u0020de\u0020lo\u0020contrario\u0020muestra\u0020un\u0020mensaje\u0020por\u0020pantalla",
+            "url": "../namespaces/default.html#function_usuario"
+        },                {
+            "fqsen": "\\redirecciona\u0028\u0029",
+            "name": "redirecciona",
+            "summary": "si\u0020el\u0020usuario\u0020tiene\u0020una\u0020factura\u0020lo\u0020redireciona\u0020a\u0020su\u0020factura\u0020de\u0020lo\u0020contrario\u0020debe\u0020crear\u0020una",
+            "url": "../namespaces/default.html#function_redirecciona"
+        },                {
+            "fqsen": "\\",
+            "name": "\\",
+            "summary": "",
+            "url": "../namespaces/default.html"
+        }            ]
+);
