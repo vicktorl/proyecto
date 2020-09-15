@@ -1,11 +1,9 @@
 <?php
 /**
- * guarda la informacion de la factura en base de datos
+ * guarda la informacion de la factura variables simples
  * @return void
  */
 function cargaUsuario(){
-
-	session_start();
 	$nombre=$_POST['nombre'];
 	$apellido=$_POST['apellido'];
 	$correo=$_POST['correo'];

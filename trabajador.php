@@ -8,20 +8,21 @@ session_start();
 	<meta charset="utf-8">
 	<title> Mantencion instrumentos musicales</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
+<body id="bodystyle" >
 	<div id="container">
 		<header>
 			<a href="index.php"><img id="imagen"width="50"src="imagenes/pastilla.jpg"></a>
 			<h2 id="tituloinicio">LB Luthier</h2>
 			<a href="loging.php"><img  id="inicio" width="50" src="imagenes/inicio.png"></a>
 		</header>
-		<nav>
-			<ul>
-				<a href="index.php"><li>Inicio</li></a>
-				<a href="somos.php"><li>¿Quienes somos?</li></a>
-				<a href="Videos.php"><li>Videos</li></a>
-				<a href="Contactos.php"><li>Contactos</li></a>
+		<nav class="pv-3 navbar-expand-lg auto-hiding-navbar " >
+			<ul class="navbar-nav ml-auto nav justify-content-center" >
+				<a class="nav-link active" href="index.php"><li class="nav item" >Inicio</li></a>
+				<a class="nav-link active"  href="somos.php"><li class="nav item" >¿Quienes somos?</li></a>
+				<a class="nav-link active"  href="Videos.php"><li class="nav item" >Videos</li></a>
+				<a class="nav-link active"  href="Contactos.php"><li class="nav item" >Contactos</li></a>
 			</ul>
 		</nav>
 		<div class="clear"></div>
@@ -36,17 +37,18 @@ session_start();
 		}
 		?>
 		<aside id="atencion">
-			<h5>medios de pago</h5>
+			<h5 id="style-text5">medios de pago</h5>
 			<a href="https://www.webpay.cl/"><img id="pago"src="imagenes/pago.jpg"></a>
 			<form id="horario">
-				<h4>Horarios de atencion</h4>
-				<p>Lun a Vie: 10:00 a 19:30</p>
-				<p>Sábados: 10:00 a 14:00</p>
-				<h4>Teléfonos:</h4>
-				<p>Teléfono: +56 2 2639xxxx</p>
-				<p>Móvil: +56 9 92228xxx</p>
-				<h4>Email:</h4>
-				<p>contacto@gmail.com</p>
+				<h5 id="style-text5">horarios</h5>
+				<h4 id="style-text4">Horarios de atencion</h4>
+				<p id="style-text-p">Lun a Vie: 10:00 a 19:30</p>
+				<p id="style-text-p">Sábados: 10:00 a 14:00</p>
+				<h4 id="style-text4">Teléfonos:</h4>
+				<p id="style-text-p">Teléfono: +56 2 2639xxxx</p>
+				<p id="style-text-p">Móvil: +56 9 92228xxx</p>
+				<h4 id="style-text4">Email:</h4>
+				<p id="style-text-p">contacto@gmail.com</p>
 			</form>
 		</aside>
 		<div id="separador2">
@@ -54,7 +56,7 @@ session_start();
 				<h1 id=datusuario>Bienvenido: <?php echo "$nombre" ?>  </h1>
 				<h1 id=datusuario>Datos de cliente</h1>
 				<div class="tabla-1">
-					<table class="tabla-2">
+					<table class="table table-hover tabla-2">
 						<?php	
 						$sqlp2="SELECT * from factura where id_trabajador='$id_trabajador'";
 						$result=mysqli_query($conectar,$sqlp2);

@@ -2,8 +2,11 @@
 include 'iniciar.php';
 session_start();
 ?>
+<?php 
+include 'validar-php/validar-compra.php'
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 	<meta charset="utf-8">
 	<title> Mantencion instrumentos musicales</title>
@@ -26,19 +29,10 @@ session_start();
 			</ul>
 		</nav>
 		<div class="clear"></div>
-		<?php
-		$sqlp="SELECT * from administrador";	
-		$result=mysqli_query($conectar,$sqlp);
-		$nombre="";
-		while($mostrar=mysqli_fetch_array($result)){
-
-			$nombre=$mostrar['nombre'];	
-		}
-		?>
 		<aside id="atencion">
-			<h5 id="style-text5" >medios de pago</h5>
+			<h5 id="style-text5">medios de pago</h5>
 			<a href="https://www.webpay.cl/"><img id="pago"src="imagenes/pago.jpg"></a>
-				<form id="horario">
+			<form id="horario">
 				<h5 id="style-text5">horarios</h5>
 				<h4 id="style-text4">Horarios de atencion</h4>
 				<p id="style-text-p">Lun a Vie: 10:00 a 19:30</p>
@@ -52,54 +46,58 @@ session_start();
 		</aside>
 		<div id="separador2">
 			<fieldset id="mapa">
+				<h1 id=datusuario>Datos de cliente</h1>
+				<form id="campo2" action="compraguitarra.php" method="POST">
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault01">nombre</label>
+							<input autocomplete="off" type="text" class="form-control" id="validationDefault01"required name="nombre" >
+						</div>
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault02">apellido</label>
+							<input autocomplete="off" type="text" class="form-control" id="validationDefault02" required name="apellido">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault03">ciudad</label>
+							<input type="text" class="form-control" id="validationDefault03" required name="ciudad">
+						</div>
+						<div class="col-md-3 mb-3">
+							<label for="validationDefault04">region</label>
+							<select class="custom-select" id="validationDefault04" required name="region">
+								<option selected  value="1">I</option>
+								<option selected  value="2">II</option>
+								<option selected  value="3">III</option>
+								<option selected  value="4">IV</option>
+								<option selected  value="5">V</option>
+								<option selected  value="6">VI</option>
+								<option selected  value="7">VII</option>
+								<option selected  value="8">VII</option>
+								<option selected  value="9">XI</option>
+							</select>
+						</div>
+						<div class="col-md-3 mb-3">
+							<label for="validationDefault05">codigo postal</label>
+							<input type="text" class="form-control" id="validationDefault05" required name="codigopostal">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+							<label class="form-check-label" for="invalidCheck2">
+								Acepta los terminos y condiciones
+							</label>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-primary" value="Enviar">
+					<?php
+				if ($_POST) {
+					cargaUsuario();
+				}
+				?>
+				</form>
 				
-				<div class="tabla-1">
-				<h1 id=datusuario>Bienvenido: <?php echo "$nombre" ?>  </h1>
-				<h1 id=datusuario>Instrumentos</h1>
-				<a href="crearinstrumento.php">Crear Instrumento</a>
-				<table class="tabla-2">
-						<?php	
-						$sqlp="SELECT * from instrumentos";
-						$result=mysqli_query($conectar,$sqlp);
-						$cliente=1;
-						while($mostrar=mysqli_fetch_array($result)){
-							?>
-							<tr>
-								<td class="tabla-casilla">Instrumento:<?php echo "$cliente"?></td>
-								<td class="tabla-casilla"><?php echo $mostrar['instrumento'] ?></a></td>
-								<td class="tabla-casilla">
-									<a href="validar-php/eliminarinstrumento.php?id=<?php echo$mostrar['id'];?>">eliminar</a>	
-								</td>	
-							</tr>
-							<?php
-							$cliente++;		
-						}
-						?>
-					</table>
-				</div>
-					<h1 id="datusuario">Trabajadores</h1>
-				<div class="tabla-1">
-					<a href="creartrabajador.php">Crear Trabajador</a>
-					<table class="tabla-2">
-						<?php	
-						$sqlp="SELECT * from trabajador";
-						$result=mysqli_query($conectar,$sqlp);
-						$cliente=1;
-						while($mostrar=mysqli_fetch_array($result)){
-							?>
-							<tr>
-								<td class="tabla-casilla">Trabajador:<?php echo "$cliente"?></td>
-								<td class="tabla-casilla"><?php echo $mostrar['nombre'] ?></a></td>
-								<td class="tabla-casilla">
-									<a href="validar-php/eliminartrabajador.php?id=<?php echo$mostrar['id'];?>">eliminar</a>	
-								</td>	
-							</tr>
-							<?php
-							$cliente++;		
-						}
-						?>
-					</table>
-				</div>
 			</fieldset>
 		</div>
 		<div class="clear"></div>

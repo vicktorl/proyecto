@@ -3,7 +3,7 @@ include 'iniciar.php';
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 	<meta charset="utf-8">
 	<title> Mantencion instrumentos musicales</title>
@@ -27,7 +27,8 @@ session_start();
 		</nav>
 		<div class="clear"></div>
 		<?php
-		$sqlp="SELECT * from administrador";	
+		$id_usuario=$_SESSION['usuario'];
+		$sqlp="SELECT * from usuario where id='$id_usuario'";	
 		$result=mysqli_query($conectar,$sqlp);
 		$nombre="";
 		while($mostrar=mysqli_fetch_array($result)){
@@ -36,9 +37,9 @@ session_start();
 		}
 		?>
 		<aside id="atencion">
-			<h5 id="style-text5" >medios de pago</h5>
+			<h5 id="style-text5">medios de pago</h5>
 			<a href="https://www.webpay.cl/"><img id="pago"src="imagenes/pago.jpg"></a>
-				<form id="horario">
+			<form id="horario">
 				<h5 id="style-text5">horarios</h5>
 				<h4 id="style-text4">Horarios de atencion</h4>
 				<p id="style-text-p">Lun a Vie: 10:00 a 19:30</p>
@@ -52,53 +53,12 @@ session_start();
 		</aside>
 		<div id="separador2">
 			<fieldset id="mapa">
-				
-				<div class="tabla-1">
 				<h1 id=datusuario>Bienvenido: <?php echo "$nombre" ?>  </h1>
-				<h1 id=datusuario>Instrumentos</h1>
-				<a href="crearinstrumento.php">Crear Instrumento</a>
-				<table class="tabla-2">
-						<?php	
-						$sqlp="SELECT * from instrumentos";
-						$result=mysqli_query($conectar,$sqlp);
-						$cliente=1;
-						while($mostrar=mysqli_fetch_array($result)){
-							?>
-							<tr>
-								<td class="tabla-casilla">Instrumento:<?php echo "$cliente"?></td>
-								<td class="tabla-casilla"><?php echo $mostrar['instrumento'] ?></a></td>
-								<td class="tabla-casilla">
-									<a href="validar-php/eliminarinstrumento.php?id=<?php echo$mostrar['id'];?>">eliminar</a>	
-								</td>	
-							</tr>
-							<?php
-							$cliente++;		
-						}
-						?>
-					</table>
-				</div>
-					<h1 id="datusuario">Trabajadores</h1>
-				<div class="tabla-1">
-					<a href="creartrabajador.php">Crear Trabajador</a>
-					<table class="tabla-2">
-						<?php	
-						$sqlp="SELECT * from trabajador";
-						$result=mysqli_query($conectar,$sqlp);
-						$cliente=1;
-						while($mostrar=mysqli_fetch_array($result)){
-							?>
-							<tr>
-								<td class="tabla-casilla">Trabajador:<?php echo "$cliente"?></td>
-								<td class="tabla-casilla"><?php echo $mostrar['nombre'] ?></a></td>
-								<td class="tabla-casilla">
-									<a href="validar-php/eliminartrabajador.php?id=<?php echo$mostrar['id'];?>">eliminar</a>	
-								</td>	
-							</tr>
-							<?php
-							$cliente++;		
-						}
-						?>
-					</table>
+				<h1 id=datusuario>Datos de cliente</h1>
+				
+				<a  href="crearguitarra.php?usuario=<?php echo$id_usuario;?>" class="text-center"><h2>crear guitarra</h2></a>
+				<a  href="formulario.php?usuario=<?php echo$id_usuario;?>" class="text-center"><h2>formulario</h2></a>
+					
 				</div>
 			</fieldset>
 		</div>

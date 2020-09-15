@@ -9,7 +9,7 @@ function administrador(){
 	$contraseha=$_POST['contraseha'];
 	$admin= "SELECT * FROM administrador where nombre ='$nombre' and contraseha ='$contraseha'";//compara contraseha y nombre
 	$query5= mysqli_query($conectar,$admin);
-	$tupla_admin=mysqli_num_rows($query5);															//encuentra una tupla 
+	$tupla_admin=mysqli_num_rows($query5);//encuentra una tupla 
 	if ($tupla_admin>0) {
 		header("Location:administrador.php");
 	}
@@ -38,7 +38,7 @@ function trabajador($nombre,$contraseha){
 		header("Location:trabajador.php");
 		die();
 	}
-	usuario($nombre,$contraseha,$id_cliente);
+	usuario($nombre,$contraseha);
 	die();
 }
 /**
@@ -49,36 +49,37 @@ function trabajador($nombre,$contraseha){
  * @param Integer $id_factura  id del usuario en la factura
  * @return void
  */
-function usuario($nombre,$contraseha,$id_cliente){
+function usuario($nombre,$contraseha){
 
 	include 'iniciar.php';
 	$id_cliente="";
 	$usuario2= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'"; 
 	$query4= mysqli_query($conectar,$usuario2);
 	while($mostrar=mysqli_fetch_array($query4)){											
-			$id_cliente=$mostrar['id'];															//toma la id del cliente
+			$id_cliente=$mostrar['id'];//toma la id del cliente
 		}
 		$id_factura="";
 		$factur= "SELECT * FROM factura ";
 		$query3= mysqli_query($conectar,$factur);
 		while($mostrar=mysqli_fetch_array($query3)){
-		if ($id_cliente==$mostrar['id_cliente']) {									//usuario pose una factura
+		if ($id_cliente==$mostrar['id_cliente']) {//usuario pose una factura
 			$id_factura=$mostrar['id_cliente'];	
 		}
 	}
 	$usuario= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'";
 	$query= mysqli_query($conectar,$usuario);
 	$tupla_usuario=mysqli_num_rows($query);	
-	if ($tupla_usuario>0) {																	//si encuentra una tupla entra
+	if ($tupla_usuario>0) {
 		while($mostrar=mysqli_fetch_array($query)){
-		if($id_cliente==$id_factura){							    	//compara la id del cliente en la id de la factura
+		if($id_cliente==$id_factura){			//compara la id del cliente en la id de la factura
 			$_SESSION['usuario']=$mostrar['id'];
-			header("Location:factura.php");								//muestra la factura
+			header("Location:factura.php");		//muestra la factura
 			die();
 		}
 		$_SESSION['usuario']=$mostrar['id'];
 	}	
-	header("Location:formulario.php");										//si no tiene una factura abre un formulario 
-}echo "<p class='error'>*nombre o contrasena incorrecta. Por favor intenta nuevamente</p>";
+	//header("Location:formulario.php");
+	header("Location:redirecciona.php");
+}echo "<p class='error'>*nombre o contrase&ntilde;a incorrecta. Por favor intenta nuevamente</p>";
 }
 ?>

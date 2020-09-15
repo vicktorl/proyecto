@@ -33,15 +33,15 @@ function mostrarFactura(){
 		?>
 		<tr>
 			<a href="index.php"><td class="tabla-casilla">Nombre</td></a>
-			<td class="tabla-casilla"><?php echo $mostrar['nombre'] ?></td>	
+			<td autocomplete="off" class="tabla-casilla"><?php echo $mostrar['nombre'] ?></td>	
 		</tr>
-		<tr>
+		<tr >
 			<td class="tabla-casilla">Apellido</td>
-			<td class="tabla-casilla"><?php echo $mostrar['apellido'] ?></td>
+			<td  autocomplete="off" class="tabla-casilla"><?php  echo $mostrar['apellido'] ?></td>
 		</tr>
 		<tr>
 			<td class="tabla-casilla">Correo</td>
-			<td class="tabla-casilla"><?php echo $mostrar['correo'] ?></td>	
+			<td  for="exampleInputEmail1"class="tabla-casilla"><?php echo $mostrar['correo'] ?></td>	
 		</tr>
 		<tr>
 			<td class="tabla-casilla">Telefono</td>

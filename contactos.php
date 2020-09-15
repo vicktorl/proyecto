@@ -7,51 +7,52 @@ include 'validar-php/validar-correo.php';
 	<meta charset="utf-8">
 	<title> Mantencion instrumentos musicales</title>
 	<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
+<body id="bodystyle" >
 	<div id="container">
 		<header>
-			<a href="index.php"><img id="imagen"width="50" src="imagenes/pastilla.jpg"></a>
+			<a href="index.php"><img id="imagen"width="50"src="imagenes/pastilla.jpg"></a>
 			<h2 id="tituloinicio">LB Luthier</h2>
 			<a href="loging.php"><img  id="inicio" width="50" src="imagenes/inicio.png"></a>
 		</header>
-		<nav>
-			<ul>
-				<a href="index.php"><li>Inicio</li></a>
-				<a href="somos.php"><li>¿Quienes somos?</li></a>
-				<a href=""><li>Videos</li></a>
-				<a href="Contactos.php"><li>Contactos</li></a>
+		<nav class="pv-3 navbar-expand-lg auto-hiding-navbar " >
+			<ul class="navbar-nav ml-auto nav justify-content-center" >
+				<a class="nav-link active" href="index.php"><li class="nav item" >Inicio</li></a>
+				<a class="nav-link active"  href="somos.php"><li class="nav item" >¿Quienes somos?</li></a>
+				<a class="nav-link active"  href="Videos.php"><li class="nav item" >Videos</li></a>
+				<a class="nav-link active"  href="Contactos.php"><li class="nav item" >Contactos</li></a>
 			</ul>
 		</nav>
+
 		<div class="clear"></div>
 		<section id ="content">
-<h5>ubicacion</h5>
+			<h5 id="style-text5">ubicacion</h5>
 			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5084.253318815904!2d-70.65470252493091!3d-33.459178399328685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c50ee9d096c1%3A0xed06b9126a372c30!2sLB%20Luthier!5e0!3m2!1ses!2scl!4v1598811776840!5m2!1ses!2scl" width="270" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 			<article class="articulo">
 				<img id="tarjetas" width="50" src="imagenes/tarjetas.png">
-				<h2>Trasnferencias a:</h2><br>
-				<p>Rut: 15.278.xxx-x</p>
-				<p> Cuenta Corriente: 02-34002xx-x</p>
-				<p>Razon social: Francisco Mesko xxxxx.</p>
-				<p>Email: contacto@mesko.cl</p><br>
-				<p>nota: </p>
-				<p>solo despachos a regiones dentro del pais</p>
+				<h4 id="#style-text4">Trasnferencias a:</h4>
+				<p id="style-text-p">Rut: 15.278.xxx-x</p>
+				<p id="style-text-p"> Cuenta Corriente: 02-34002xx-x</p>
+				<p id="style-text-p">Razon social: Francisco Mesko xxxxx.</p>
+				<p id="style-text-p">Email: contacto@mesko.cl</p><br>
+				<p id="style-text-p">nota: </p>
+				<p id="style-text-p">solo despachos a regiones dentro del pais</p>
 			</article>
 		</section>
 		<aside id="atencion">
-			
-			<h5>medios de pago</h5>
+			<h5 id="style-text5">medios de pago</h5>
 			<a href="https://www.webpay.cl/"><img id="pago"src="imagenes/pago.jpg"></a>
 			<form id="horario">
-				<h5>horarios</h5>
-				<h4>Horarios de atencion</h4>
-				<p>Lun a Vie: 10:00 a 19:30</p>
-				<p>Sábados: 10:00 a 14:00</p>
-				<h4>Teléfonos:</h4>
-				<p>Teléfono: +56 2 2639xxxx</p>
-				<p>Móvil: +56 9 92228xxx</p>
-				<h4>Email:</h4>
-				<p>contacto@gmail.com</p>
+				<h5 id="style-text5">horarios</h5>
+				<h4 id="style-text4">Horarios de atencion</h4>
+				<p id="style-text-p">Lun a Vie: 10:00 a 19:30</p>
+				<p id="style-text-p">Sábados: 10:00 a 14:00</p>
+				<h4 id="style-text4">Teléfonos:</h4>
+				<p id="style-text-p">Teléfono: +56 2 2639xxxx</p>
+				<p id="style-text-p">Móvil: +56 9 92228xxx</p>
+				<h4 id="style-text4">Email:</h4>
+				<p id="style-text-p">contacto@gmail.com</p>
 			</form>
 		</aside>
 		<div id="separador">
@@ -60,14 +61,14 @@ include 'validar-php/validar-correo.php';
 				<p id="consulta">para cualquier consulta o duda porfavor complete el siguiente formulario:</p>
 				<form id="usuario" action="Contactos.php" method="POST">
 					<label>Nombre*</label>
-					<input required name="nombre" class="control" >
+					<input autocomplete="off" required name="nombre" class="control form-control">
 					<label>correo electronico*</label>
-					<input requiered name="correo" class="control" >
+					<input autocomplete="off" requiered name="correo" class="control form-control" >
 					<label>telefono*</label>
-					<input requiered name="telefono" class="control">
+					<input requiered name="telefono" class="control form-control">
 					<label>mensaje*</label>
-					<textarea requiered name="mensaje"class="control" ></textarea>
-					<input type="submit" value="Enviar">
+					<textarea requiered name="mensaje"class="control form-control" ></textarea>
+					<input id="boton" type="submit" value="Enviar">
 					<p></p>
 					<?php
 					if ($_POST) {
