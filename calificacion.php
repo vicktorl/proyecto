@@ -50,7 +50,7 @@ session_start();
 				$id_trabajador=$_GET['id_trab'];
 				$id_cliente=$_SESSION['usuario'];
 				$insertar="INSERT INTO `calificacion_luthier`(`calificacion`, `id_cliente`,`id_trabajador`) VALUES('$calificacion','$id_cliente','$id_trabajador')";
-				$resultado = mysqli_query($conectar,$insertar);
+				$resultado  = mysqli_query($conectar,$insertar);
 		if($resultado){
 			echo "<p class='exito'>*El registro se ha realizado con exito</p>";
 
