@@ -42,15 +42,22 @@ include 'validar-php/validar-factura.php';
 		</aside>
 		<div id="separador2">
 			<fieldset id="mapa">
+				
 				<h1 id=datusuario>Hola: <?php echo mostrarUsuario(); ?>  </h1>
+				<a href="evaluar.php?id_trab=<?php echo mostrarTrabajador(); ?>">evaluar luthier</a>	
 				<h1 id=datusuario>Direccion de factura</h1>
 				<div class="tabla-1">
 					<table class="tabla-2">
-						<?php	
+						<?php
 						mostrarFactura();
 						?>
 					</table>
 					<h1 id=datusuario>seguimiento</h1>
+					<table class="tabla-2">
+					<?php	
+						seguimiento();
+						?>
+						</table>
 					<div class="tabla-1">
 						<table class="tabla-2">
 						</table>

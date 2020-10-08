@@ -3,7 +3,7 @@ include 'iniciar.php';
 session_start();
 ?>
 <?php 
-include 'validar-php/validar-compra.php'
+include 'validar-php/validar-compra.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +29,15 @@ include 'validar-php/validar-compra.php'
 			</ul>
 		</nav>
 		<div class="clear"></div>
+		<?php
+			$id_usuario=$_SESSION['usuario'];
+			$sqlp="SELECT * from usuario where id='$id_usuario'";	
+			$result=mysqli_query($conectar,$sqlp);
+			while($mostrar=mysqli_fetch_array($result)){
+
+				$nombre=$mostrar['nombre'];	
+			}
+			?>
 		<aside id="atencion">
 			<h5 id="style-text5">medios de pago</h5>
 			<a href="https://www.webpay.cl/"><img id="pago"src="imagenes/pago.jpg"></a>
@@ -48,54 +57,37 @@ include 'validar-php/validar-compra.php'
 			<fieldset id="mapa">
 				<h1 id=datusuario>Datos de cliente</h1>
 				<form id="campo2" action="compraguitarra.php" method="POST">
-					<div class="form-row">
-						<div class="col-md-6 mb-3">
-							<label for="validationDefault01">nombre</label>
-							<input autocomplete="off" type="text" class="form-control" id="validationDefault01"required name="nombre" >
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="validationDefault02">apellido</label>
-							<input autocomplete="off" type="text" class="form-control" id="validationDefault02" required name="apellido">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="col-md-6 mb-3">
-							<label for="validationDefault03">ciudad</label>
-							<input type="text" class="form-control" id="validationDefault03" required name="ciudad">
-						</div>
-						<div class="col-md-3 mb-3">
-							<label for="validationDefault04">region</label>
-							<select class="custom-select" id="validationDefault04" required name="region">
-								<option selected  value="1">I</option>
-								<option selected  value="2">II</option>
-								<option selected  value="3">III</option>
-								<option selected  value="4">IV</option>
-								<option selected  value="5">V</option>
-								<option selected  value="6">VI</option>
-								<option selected  value="7">VII</option>
-								<option selected  value="8">VII</option>
-								<option selected  value="9">XI</option>
-							</select>
-						</div>
-						<div class="col-md-3 mb-3">
-							<label for="validationDefault05">codigo postal</label>
-							<input type="text" class="form-control" id="validationDefault05" required name="codigopostal">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-							<label class="form-check-label" for="invalidCheck2">
-								Acepta los terminos y condiciones
-							</label>
-						</div>
-					</div>
-					<input type="submit" class="btn btn-primary" value="Enviar">
+					
 					<?php
-				if ($_POST) {
-					cargaUsuario();
-				}
-				?>
+					
+						cargaUsuario();
+
+					?>
+					<h1 id=datusuario>Datos del cliente</h1>
+					<div class="tabla-1">
+						<table class="table table-hover tabla-2">
+							<?php
+							$sqlp="SELECT * from detallefactura where id_cliente='$id_usuario'";
+							$result=mysqli_query($conectar,$sqlp);
+							while($mostrar=mysqli_fetch_array($result)){
+								?>
+								<tr>
+									<td class="tabla-casilla">madera</td>
+									<td class="tabla-casilla"><?php echo $mostrar['madera'] ?></td>	
+								</tr>
+								<tr>
+									<td class="tabla-casilla">clavijero</td>
+									<td class="tabla-casilla"><?php echo $mostrar['clavijero'] ?></td>				
+
+								</tr>
+								<tr>
+									<td class="tabla-casilla">total :</td>
+									<td class="tabla-casilla"><?php echo $mostrar['total'] ?></td>
+								</tr>
+								<?php			
+							}?>
+						</table>
+					</div>
 				</form>
 				
 			</fieldset>

@@ -57,30 +57,70 @@ include 'validar-php/validar_loging.php';
 		</aside>
 		<div id="separador">
 			<fieldset id="mapa">
-				<h1 id=datusuario>Sesion</h1>
-				<form  id="usuario"action="loging.php" method="POST">
-					<h2>Formulario de registro</h2>
-					<div class="form-group">
-						<input autocomplete="off" required name="nombre"type="text" placeholder="Ingrese su nombre" class="form-control">
+				<h1 id=datusuario>Formulario de sesion</h1>
+				<form id="usuario2" action="loging.php" method="POST">
+
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault01">nombre</label>
+							<input autocomplete="off" type="text" class="form-control" id="validationDefault01"required name="nombre" >
+						</div>
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault02">apellido</label>
+							<input autocomplete="off" type="text" class="form-control" id="validationDefault02" required name="apellido">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault03">ciudad</label>
+							<input autocomplete="off"  type="text" class="form-control" id="validationDefault03" required name="ciudad">
+						</div>
+						<div class="col-md-3 mb-3">
+							<label for="validationDefault04">region</label>
+							<select class="custom-select" id="validationDefault04" required name="region">
+								<option selected  value="1">I</option>
+								<option selected  value="2">II</option>
+								<option selected  value="3">III</option>
+								<option selected  value="4">IV</option>
+								<option selected  value="5">V</option>
+								<option selected  value="6">VI</option>
+								<option selected  value="7">VII</option>
+								<option selected  value="8">VIII</option>
+								<option selected  value="9">XI</option>
+							</select>
+						</div>
+						<div class="col-md-3 mb-3">
+							<label for="validationDefault05">codigo postal</label>
+							<input autocomplete="off"  type="text" class="form-control" id="validationDefault05" required name="codigopostal">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault01">contrase&ntilde;a</label>
+							<input autocomplete="off" type="password" class="form-control" id="validationDefault01"required name="contraseha" >
+						</div>
+						<div class="col-md-6 mb-3">
+							<label for="validationDefault02">confirme contrase&ntilde;a</label>
+							<input autocomplete="off" type="password" class="form-control" id="validationDefault02" required name="confirmar">
+						</div>
 					</div>
 					<div class="form-group">
-						<input required name="apellido" type="text" placeholder="Ingrese su apellido" class="form-control">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+							<label class="form-check-label" for="invalidCheck2">
+								Acepta los terminos y condiciones
+							</label>
+						</div>
 					</div>
-					<div class="form-group">
-						<input required name="contraseha" type="password" placeholder="Ingrese su contrase&ntilde;a" class="form-control">
-					</div>
-					<div class="form-group">
-						<input required name="confirmar" type="password" placeholder="Confirme su contrase&ntilde;a" class="form-control">
-					</div>
-					<p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-					<input id="boton" type="submit" value="Registrar">
-					<p><a id="cuenta" href="usuario.php">¿Ya tienes una cuenta?</a></p>
+					<input name="username" type="submit" class="btn btn-primary" value="Enviar">
+					<a align="center" href="usuario.php" class="nav-link">¿ya tienes una cuenta?</a>
 					<?php 
 					if ($_POST) {
 						if($_POST["contraseha"]==$_POST["confirmar"]){
 							cargaUsuario();
-						}echo "<p class='error'>*la contrasea no coinciden</p>";
-					}
+						}else{
+							echo "<p class='error'>*la contrase&ntilde;a no coinciden</p>";
+					}}
 					?>
 				</form>
 			</fieldset>

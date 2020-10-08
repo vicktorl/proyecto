@@ -100,6 +100,31 @@ session_start();
 						?>
 					</table>
 				</div>
+				<h1 id="datusuario">transportista</h1>
+				<div class="tabla-1">
+					<a href="creartrabajador.php">Crear Trabajador</a>
+					<table class="tabla-2">
+						<?php	
+						$sqlp="SELECT * from transportista";
+						$result=mysqli_query($conectar,$sqlp);
+						$cliente=1;
+						while($mostrar=mysqli_fetch_array($result)){
+							?>
+							<tr>
+								<td class="tabla-casilla">transportista:<?php echo "$cliente"?></td>
+								<td class="tabla-casilla"><?php echo $mostrar['nombre'] ?></a></td>
+								<td class="tabla-casilla">
+									<a href="validar-php/eliminartrabajador.php?id=<?php echo$mostrar['id_trasportista'];?>">eliminar</a>	
+								</td>	
+							</tr>
+							<?php
+							$cliente++;		
+						}
+						?>
+					</table>
+				</div>
+
+				</div>
 			</fieldset>
 		</div>
 		<div class="clear"></div>

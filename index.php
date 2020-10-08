@@ -20,6 +20,7 @@
 				<a class="nav-link active"  href="somos.php"><li class="nav item" >¿Quienes somos?</li></a>
 				<a class="nav-link active"  href="Videos.php"><li class="nav item" >Videos</li></a>
 				<a class="nav-link active"  href="Contactos.php"><li class="nav item" >Contactos</li></a>
+				<a class="nav-link active"  href="Luthier.php"><li class="nav item" >Luthier's</li></a>
 			</ul>
 		</nav>
 

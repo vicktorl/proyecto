@@ -5,49 +5,35 @@
  */
 function cargaUsuario(){
 
-	session_start();
+	//zsession_start();
 	$nombre=$_POST['nombre'];
 	$apellido=$_POST['apellido'];
+	$ciudad=$_POST['ciudad'];
+	$region=$_POST['region'];
+	$codigopostal=$_POST['codigopostal'];
 	$contraseha=$_POST['contraseha'];
-	guardaUsuario($nombre,$apellido,$contraseha);
+	guardaUsuario($nombre,$apellido,$region,$ciudad,$codigopostal,$contraseha);
 }
 /**
  * guarda usuario en base de datos
  * @param String $nombre  nombre del usuario
  * @param  String $apellido  Apellido del usuario
+ * @param  String $region  region del usuario
+ * @param  String $ciudad  ciudad del usuario
  * @param  String $contraseha  Contraseha del usuario
  * @return void
  */
-function guardaUsuario($nombre,$apellido,$contraseha){
+function guardaUsuario($nombre,$apellido,$region,$ciudad,$codigopostal,$contraseha){
 
 	include 'iniciar.php';
-	$insertar= "INSERT INTO `usuario`(`nombre`, `apellido`,`contraseha`) VALUES ('$nombre','$apellido','$contraseha')";
+	$insertar= "INSERT INTO `usuario`(`nombre`, `apellido`,`ciudad`,`region`,`codigopostal`,`contraseha`) VALUES ('$nombre','$apellido','$ciudad','$region','$codigopostal','$contraseha')";
 	$resultado = mysqli_query($conectar,$insertar);
-	redirecciona($nombre,$apellido,$contraseha);
-}
-/**
-* si el usuario tiene una factura lo redireciona a su factura de lo contrario debe crear una
-* @param  String $nombre  nombre del usuario
-* @param  String $apellido  Apellido del usuario
-* @param  String $contraseha  Contraseha del usuario
-* @return void
-*/
-function redirecciona($nombre,$apellido,$contraseha){
-	
-	include 'iniciar.php';
-	$usuario= "SELECT * FROM usuario where nombre ='$nombre' and contraseha ='$contraseha'";
-	$query= mysqli_query($conectar,$usuario);
-	$tupla=mysqli_num_rows($query);
-	if($tupla>0){
-		while($mostrar=mysqli_fetch_array($query)){
-			$_SESSION['usuario']=$mostrar['id'];
+	if($resultado){
+			echo "<p class='exito'>*El registro se ha realizado con exito</p>";
+			
+		}else{
+
+			echo "<p class='error'>*error</p>";
 		}
-		$id=$_SESSION['usuario'];
-		echo "$id";
-		header("Location:formulario.php");	
-			//echo "su registro se ha realizado con exito ";
-	}else{
-		echo "error";
-	}
 }
 ?>

@@ -14,6 +14,15 @@ function mostrarUsuario(){
 	}
 	return "$nombre";
 }
+function mostrarTrabajador(){
+	include 'iniciar.php';
+	$id=$_SESSION['usuario'];
+	$sqlp="SELECT * from factura where id_cliente='$id'";
+	$result=mysqli_query($conectar,$sqlp);
+	while($mostrar=mysqli_fetch_array($result)){
+		$trabajador=$mostrar['id_trabajador'];
+	}return $trabajador;
+}
 /**
  * muestra la informacion guardada en base de datos
  * @return void
@@ -54,6 +63,24 @@ function mostrarFactura(){
 		<tr>
 			<td class="tabla-casilla">Ciudad</td>
 			<td class="tabla-casilla"><?php echo $mostrar['ciudad'] ?></td>	
+		</tr>
+		<?php
+	}
+}
+function Seguimiento(){
+	include 'iniciar.php';
+	$id=$_SESSION['transp'];
+	$sqlp="SELECT * from transporte where id='$id'";
+	$result=mysqli_query($conectar,$sqlp);
+	while($mostrar=mysqli_fetch_array($result)){
+		?>
+		<tr>
+			<td class="tabla-casilla">Estado:</td>
+			<td  class="tabla-casilla"><?php echo $mostrar['estado'] ?></td>	
+		</tr>
+		<tr >
+			<td class="tabla-casilla">Nombre trasportista</td>
+			<td class="tabla-casilla"> Juan Perez</td>
 		</tr>
 		<?php
 	}

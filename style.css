@@ -353,4 +353,33 @@ padding-left:200px;
 	border:2px solid black;
 	margin-top: 30px;
 	margin-left: 40px;
+}#usuario2{
+	padding: 4px;
+	padding-top: 14px;
+	margin: 4px;
+	border:2px solid black;
+}#pickup{
+	position: absolute;
+	width: 65px;
+	margin-top: 242px;
+	margin-left: 200px;
+	transform: rotate(90deg);
+}#pickdown{
+	position: absolute;
+	width: 69px;
+	margin-top: 239px;
+	margin-left: 257px;
+	transform: rotate(91deg);	
+}#star{
+	margin-left: 20px;
+	width: 50px;
+	float:left;
+	box-sizing: border-box;
+	border-radius: 50%
+}#nombre{
+	display: inline-block;
+	float:left;
+}#luthier_imagen{
+	width: 820px;
+	margin-right: 50px;
 }

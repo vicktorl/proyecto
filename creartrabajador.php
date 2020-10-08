@@ -68,7 +68,7 @@ include 'iniciar.php';
 					<label>telefono*</label>
 					<input requiered name="telefono" class="control" type="text">
 					<label>contrase&ntilde;a*</label>
-					<input requiered name="contraseha" class="control" type="text">
+					<input requiered name="contraseha" class="control" type="password">
 					<input type="submit" value="Enviar">
 					<p></p>
 					<?php

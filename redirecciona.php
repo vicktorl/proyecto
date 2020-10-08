@@ -53,23 +53,27 @@ session_start();
 		</aside>
 		<div id="separador2">
 			<fieldset id="mapa">
-				<h1 id=datusuario>Bienvenido: <?php echo "$nombre" ?>  </h1>
-				<h1 id=datusuario>Datos de cliente</h1>
-				
-				<a  href="crearguitarra.php?usuario=<?php echo$id_usuario;?>" class="text-center"><h2>crear guitarra</h2></a>
-				<a  href="formulario.php?usuario=<?php echo$id_usuario;?>" class="text-center"><h2>formulario</h2></a>
-					
-				</div>
-			</fieldset>
-		</div>
-		<div class="clear"></div>
-	</div><footer>
-		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	</footer>
+				<h1 id=datusuario>Bienvenido: <?php echo "$nombre" ?></h1>
+				<nav id="navbar-example3" class="navbar navbar-light bg-light">
+					<a class="navbar-brand" >seleccione una opcion</a>
+					 <nav class="nav nav-pills flex-column">
+
+					<a  class="nav-link" href="crearguitarra.php?usuario=<?php echo$id_usuario;?>" class="text-center"><h2>crear guitarra</h2></a>
+					<a  class="nav-link" href="formulario.php?usuario=<?php echo$id_usuario;?>" class="text-center"><h2>reparar guitarra</h2></a>
+				</nav>
+				</nav>
+
+			</div>
+		</fieldset>
+	</div>
+	<div class="clear"></div>
+</div><footer>
+	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</footer>
 </body>
 </html>
